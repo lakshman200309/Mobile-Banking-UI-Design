@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mobile Banking App</title>
+
+  <!-- Fonts and Styles -->
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ✅ Marquee Banner -->
+  <div class="marquee-wrapper">
+    <div class="marquee">
+      💸 Welcome to MyBank – Smart. Secure. Simple. 💳 Enjoy 24x7 Online Banking! 🏦
+    </div>
+  </div>
+
+<!-- ✅ Oversized Left-Side Brand Label -->
+<div class="left-logo-label"><style font="100px;">MyBank</style></div>
+<div class="left-caption-text">Smart. Secure. Simple.</div>
+
+
+  <!-- Welcome Screen -->
+  <div id="welcomeScreen" class="screen">
+    <h2>Welcome to MyBank</h2>
+    <button onclick="showScreen('loginScreen')">Log In</button>
+    <button onclick="showScreen('signupScreen')">Sign Up</button>
+  </div>
+
+  <!-- Login Screen -->
+  <div id="loginScreen" class="screen hidden">
+    <h2>Login</h2>
+    <input type="text" id="loginEmail" placeholder="Email" />
+    <input type="password" id="loginPassword" placeholder="Password" />
+    <button onclick="login()">Log In</button>
+    <button class="backBtn" onclick="showScreen('welcomeScreen')">Back</button>
+  </div>
+
+  <!-- Signup Screen -->
+  <div id="signupScreen" class="screen hidden">
+    <h2>Sign Up</h2>
+    <input type="text" id="signupName" placeholder="Full Name" />
+    <input type="text" id="signupEmail" placeholder="Email" />
+    <input type="password" id="signupPassword" placeholder="Password" />
+    <button onclick="signup()">Sign Up</button>
+    <button class="backBtn" onclick="showScreen('welcomeScreen')">Back</button>
+  </div>
+
+  <!-- Dashboard -->
+  <div id="dashboardScreen" class="screen hidden">
+    <div class="header">
+      <h2>Hi, <span id="userName">User</span></h2>
+      <button onclick="showScreen('welcomeScreen')">Log Out</button>
+    </div>
+    <div class="balance">
+      <h3>Account Balance</h3>
+      <p id="balanceAmount">$5,200.00</p>
+    </div>
+    <div class="actions">
+      <button onclick="showScreen('transferScreen')">Transfer Money</button>
+      <button onclick="showScreen('historyScreen')">Transaction History</button>
+      <button onclick="showScreen('billScreen')">Pay Bills</button>
+    </div>
+  </div>
+
+  <!-- Transfer Screen -->
+  <div id="transferScreen" class="screen hidden">
+    <h2>Transfer Money</h2>
+    <input type="text" id="recipient" placeholder="Recipient Name" />
+    <input type="number" id="amount" placeholder="Amount" />
+    <button onclick="transfer()">Send</button>
+    <button class="backBtn" onclick="showScreen('dashboardScreen')">Back</button>
+  </div>
+
+  <!-- Transaction History -->
+  <div id="historyScreen" class="screen hidden">
+    <h2>Transaction History</h2>
+    <ul id="transactionList">
+      <li>$200 sent to John Doe - 01 July</li>
+      <li>$12.99 paid to Netflix - 01 July</li>
+      <li>$3,000 received - 30 June</li>
+    </ul>
+    <button class="backBtn" onclick="showScreen('dashboardScreen')">Back</button>
+  </div>
+
+  <!-- Bill Payment Screen -->
+  <div id="billScreen" class="screen hidden">
+    <h2>Pay Bills</h2>
+    <select id="billType">
+      <option value="">Select Biller</option>
+      <option value="Electricity">Electricity</option>
+      <option value="Internet">Internet</option>
+      <option value="Water">Water</option>
+      <option value="Phone">Phone</option>
+    </select>
+    <input type="number" id="billAmount" placeholder="Amount" />
+    <button onclick="payBill()">Pay Now</button>
+    <button class="backBtn" onclick="showScreen('dashboardScreen')">Back</button>
+  </div>
+
+  <!-- Theme Toggle -->
+  <div class="theme-toggle">
+    <label for="themeSwitcher">
+      <input type="checkbox" id="themeSwitcher" />
+      <span class="emoji-label">🌞 / 🌙</span>
+    </label>
+  </div>
+
+  <!-- Animated Background Layer -->
+  <div class="animated-bg"></div>
+
+  <!-- JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
